@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Nick Janetakis
+  description: Install and configure your system's locales
+  company: 
+  license: license (MIT)
+  min_ansible_version: 1.6
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+
+  categories:
+  - system
+
+dependencies: []

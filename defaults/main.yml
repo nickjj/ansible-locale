@@ -1,0 +1,5 @@
+---
+locale_locales:
+  - { locale: en_US.UTF-8, state: present }
+
+apt_cache_valid_time: 86400
