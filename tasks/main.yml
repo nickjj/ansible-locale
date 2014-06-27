@@ -7,7 +7,7 @@
   register: locales_packages
 
 - name: ensure dpkg is reconfigured
-  command: dpgk-reconfigure locales
+  command: dpkg-reconfigure locales
   when: locales_packages.changed
 
 - name: ensure the system locale is configured
