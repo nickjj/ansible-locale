@@ -20,7 +20,7 @@ locale_language_packs:
   - language-pack-en
   - language-pack-en-base
 
-# Where does the local configuration file exist?
+# Where does the locale configuration file exist?
 # If you get errors, try using `/etc/local.gen` as the path.
 locale_config_path: /var/lib/locales/supported.d/local
 
@@ -36,7 +36,7 @@ To use this role edit your `site.yml` file to look something like this:
 
 ```
 ---
-- name: ensure apps is configured
+- name: ensure apps are configured
 - hosts: app
 
   roles:
