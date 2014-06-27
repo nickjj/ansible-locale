@@ -1,17 +1,23 @@
 ---
 - name: ensure locales is installed
+  apt: pkg=locales state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
+
+- name: ensure language packages are installed
   apt: pkg={{ item }} state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
-  with_items:
-    - locales
-    - language-pack-en
-  register: locales_packages
+  with_items: locale_language_packs
+  register: locale_languages
 
 - name: ensure dpkg is reconfigured
   command: dpkg-reconfigure locales
-  when: locales_packages.changed
+  when: locale_languages.changed
 
-- name: ensure /var/lib/locales/supported.d/local is created
-  file: path=/var/lib/locales/supported.d/local state=touch
+- name: detect locale configuration file
+  stat: path={{ locale_config_path }}
+  register: locale_configuration
+
+- name: ensure locale configuration file is created
+  file: path={{ locale_config_path }} state=touch
+  when: not locale_configuration.stat.exists
 
 - name: ensure the system locale is configured
   locale_gen: name={{ item.locale }} state={{ item.state }}

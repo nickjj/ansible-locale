@@ -2,4 +2,10 @@
 locale_locales:
   - { locale: en_US.UTF-8, state: present }
 
+locale_language_packs:
+  - language-pack-en
+  - language-pack-en-base
+
+locale_config_path: /var/lib/locales/supported.d/local
+
 apt_cache_valid_time: 86400

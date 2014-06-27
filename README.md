@@ -15,6 +15,15 @@ It is a good idea to use a consistent locale across your servers and certain ser
 locale_locales:
   - { locale: en_US.UTF-8, state: present }
 
+# Which language packs should be installed?
+locale_language_packs:
+  - language-pack-en
+  - language-pack-en-base
+
+# Where does the local configuration file exist?
+# If you get errors, try using `/etc/local.gen` as the path.
+locale_config_path: /var/lib/locales/supported.d/local
+
 # The amount in seconds to cache apt-update.
 apt_cache_valid_time: 86400
 ```
@@ -41,6 +50,9 @@ Let's say you want to edit the locale, you can do this by opening or creating `g
 locale_locales:
   - { locale: de_DE.UTF-8, state: present }
 
+locale_language_packs:
+  - language-pack-de
+  - language-pack-de-base
 ```
 
 ## Installation
