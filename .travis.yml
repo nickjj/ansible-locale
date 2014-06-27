@@ -7,8 +7,6 @@ env:
 
 before_install:
   - "sudo apt-get update -qq"
-  - "sudo apt-get install -qq locales language-pack-en"
-  - "sudo dpkg-reconfigure locales"
 
 install:
   - "pip install ansible==1.6.2"
@@ -22,5 +20,3 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
-
-locale_locales: []
