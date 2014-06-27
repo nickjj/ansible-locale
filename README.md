@@ -4,14 +4,14 @@ It is an [ansible](http://www.ansible.com/home) role to install the locales pack
 
 ### What problem does it solve and why is it useful?
 
-It is a good idea to use a consistent locale across your servers and certain services like postgres will not install to an expected path if the locale is different.
+It is a good idea to use a consistent locale across your servers and certain services like postgres will not install to the expected path if the locale is not configured.
 
 ## Role variables
 
 ```
 ---
 # Which locale(s) should be used?
-# The state can be present or absent
+# The state can be present or absent.
 locale_locales:
   - { locale: en_US.UTF-8, state: present }
 
