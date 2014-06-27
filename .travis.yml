@@ -7,6 +7,7 @@ env:
 
 before_install:
   - "sudo apt-get update -qq"
+  - "sudo dpkg-reconfigure locales"
 
 install:
   - "pip install ansible==1.6.2"
