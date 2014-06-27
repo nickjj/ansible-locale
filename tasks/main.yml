@@ -2,6 +2,10 @@
 - name: ensure locales is installed
   apt: pkg=locales state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
 
-- name: ensure the system locale is configured
-  locale_gen: name={{ item.locale }} state={{ item.state }}
-  with_items: locale_locales
+# - name: ensure the system locale is configured
+#   locale_gen: name={{ item.locale }} state={{ item.state }}
+#   with_items: locale_locales
+
+ - name: ensure the system locale is configured
+   command: locale-gen {{ item.locale }}
+   with_items: locale_locales
