@@ -10,6 +10,9 @@
   command: dpkg-reconfigure locales
   when: locales_packages.changed
 
+- name: ensure /var/lib/locales/supported.d/local is created
+  file: path=/var/lib/locales/supported.d/local state=touch
+
 - name: ensure the system locale is configured
   locale_gen: name={{ item.locale }} state={{ item.state }}
   with_items: locale_locales
