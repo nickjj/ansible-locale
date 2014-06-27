@@ -51,6 +51,10 @@ locale_locales:
 
 Tested on ubuntu 12.04 LTS but it should work on other versions that are similar.
 
+## Ansible galaxy
+
+You can find it on the official [ansible galaxy](https://galaxy.ansible.com/list#/roles/1071) if you want to rate it.
+
 ## License
 
 MIT
